@@ -17,16 +17,77 @@
         app:navigationIcon="@drawable/ic_keyboard_arrow_down_black_24dp"
         app:title="@string/app_name" />
 
+    <ImageView
+        android:id="@+id/ivIcon"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_player_margin_main"
+        android:layout_marginTop="@dimen/activity_player_margin_main"
+        android:layout_marginEnd="@dimen/activity_player_margin_main"
+        android:layout_marginBottom="@dimen/activity_player_margin_main"
+        android:adjustViewBounds="true"
+        android:contentDescription="@null"
+        android:elevation="@dimen/activity_player_image_elevation"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:srcCompat="@drawable/player_bg"
+        tools:srcCompat="@drawable/player_bg" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/viewPlayerButtons"
         style="@style/PlayerButtons"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:elevation="@dimen/activity_player_buttons_elevation"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/TextBig"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_player_margin_main"
+            android:layout_marginEnd="@dimen/activity_player_margin_main"
+            android:gravity="center"
+            app:layout_constraintBottom_toTopOf="@+id/tvStatus"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.39999998"
+            tools:text="Artist - Track" />
+
+        <TextView
+            android:id="@+id/tvName"
+            style="@style/TextBig"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_player_margin_main"
+            android:layout_marginTop="@dimen/activity_player_margin_secondary"
+            android:layout_marginEnd="@dimen/activity_player_margin_main"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+            tools:text="Name" />
+
+        <TextView
+            android:id="@+id/tvStatus"
+            style="@style/TextStatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_player_margin_main"
+            android:layout_marginEnd="@dimen/activity_player_margin_main"
+            android:layout_marginBottom="@dimen/activity_player_margin_main"
+            android:gravity="center"
+            app:layout_constraintBottom_toTopOf="@+id/btnPlay"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Status" />
 
         <ImageButton
             android:id="@+id/btnHistory"
@@ -56,86 +117,21 @@
             android:id="@+id/btnPlay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_player_button_main_margin_bottom"
             android:elevation="@dimen/activity_player_margin_main_elevation"
             android:scaleType="fitXY"
             app:fabCustomSize="@dimen/activity_player_button_main_size"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_play_arrow_black_24dp" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <TextView
-        android:id="@+id/tvTitle"
-        style="@style/TextBig"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/activity_player_margin_main"
-        android:layout_marginTop="@dimen/activity_player_margin_main"
-        android:layout_marginEnd="@dimen/activity_player_margin_main"
-        android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        tools:text="Artist - Track" />
-
-    <ImageView
-        android:id="@+id/ivIcon"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/activity_player_margin_main"
-        android:layout_marginTop="@dimen/activity_player_margin_main"
-        android:layout_marginEnd="@dimen/activity_player_margin_main"
-        android:layout_marginBottom="@dimen/activity_player_margin_main"
-        android:adjustViewBounds="true"
-        android:contentDescription="@null"
-        android:elevation="@dimen/activity_player_image_elevation"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/tvName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
-        app:srcCompat="@drawable/player_bg"
-        tools:srcCompat="@drawable/player_bg" />
-
-    <TextView
-        android:id="@+id/tvName"
-        style="@style/TextBig"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/activity_player_margin_main"
-        android:layout_marginEnd="@dimen/activity_player_margin_main"
-        android:layout_marginBottom="@dimen/activity_player_margin_secondary"
-        android:gravity="center"
-        app:layout_constraintBottom_toTopOf="@+id/tvStatus"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="Name" />
-
-    <TextView
-        android:id="@+id/tvStatus"
-        style="@style/TextStatus"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/activity_player_margin_main"
-        android:layout_marginEnd="@dimen/activity_player_margin_main"
-        android:layout_marginBottom="@dimen/activity_player_margin_secondary"
-        android:gravity="center"
-        app:layout_constraintBottom_toTopOf="@+id/viewPlayerButtons"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="Status" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.75" />
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.6" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_player_margin_main">16dp</dimen>
+    <dimen name="activity_player_margin_secondary">8dp</dimen>
+    <dimen name="activity_player_button_main_size">80dp</dimen>
+    <dimen name="activity_player_margin_main_elevation">6dp</dimen>
+    <dimen name="activity_player_button_secondary_size">64dp</dimen>
+    <dimen name="activity_player_image_elevation">12dp</dimen>
+    <dimen name="activity_player_buttons_elevation">4dp</dimen>
+    <dimen name="activity_player_button_main_margin_bottom">48dp</dimen>
+</resources>
