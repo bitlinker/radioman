@@ -14,8 +14,8 @@ public class MainActivity extends MvpXAppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
 
-        Intent intent = new Intent(this, PlayerActivity.class);
-        startActivity(intent);
+//        Intent intent = new Intent(this, PlayerActivity.class);
+//        startActivity(intent);
 
         // TODO: cicierone
         getSupportFragmentManager()
