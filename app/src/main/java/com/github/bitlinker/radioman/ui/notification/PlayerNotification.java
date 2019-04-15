@@ -14,7 +14,7 @@ import android.support.v4.media.session.PlaybackStateCompat;
 import android.widget.RemoteViews;
 
 import com.github.bitlinker.radioman.R;
-import com.github.bitlinker.radioman.ui.player.PlayerActivity;
+import com.github.bitlinker.radioman.ui.player.PlayerFragment;
 
 import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
@@ -28,7 +28,7 @@ public class PlayerNotification {
     public PlayerNotification(Context context, MediaSessionCompat mediaSession) {
         RemoteViews notificationLayout = new RemoteViews(context.getPackageName(), R.layout.notification_player);
 
-        Intent notificationIntent = new Intent(context, PlayerActivity.class);
+        Intent notificationIntent = new Intent(context, PlayerFragment.class);
         notificationIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, notificationIntent, 0);
 

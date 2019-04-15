@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.arellomobile.mvp.presenter.InjectPresenter;
+import com.github.bitlinker.radioman.R;
 import com.github.bitlinker.radioman.ui.moxyx.MvpXAppCompatFragment;
 import com.github.bitlinker.radioman.ui.player.PlayerPresenter;
 import com.github.bitlinker.radioman.ui.player.PlayerView;
@@ -21,9 +22,12 @@ public class BottomPlayerFragment extends MvpXAppCompatFragment implements Playe
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        // TODO
-        return super.onCreateView(inflater, container, savedInstanceState);
+        return inflater.inflate(R.layout.bottomplayer_fragment, container, false);
+    }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         // TODO
         //presenter.onPlayPauseClicked();
     }

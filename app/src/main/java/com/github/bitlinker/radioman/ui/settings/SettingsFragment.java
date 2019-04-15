@@ -12,10 +12,15 @@ import com.github.bitlinker.radioman.ui.moxyx.MvpXAppCompatFragment;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 
 public class SettingsFragment extends BaseFragment {
     // TODO: inject
     MainNavigator mainNavigator;
+
+    public static SettingsFragment newInstance() {
+        return new SettingsFragment();
+    }
 
     @Nullable
     @Override

@@ -36,6 +36,14 @@ public class PlayerPresenter extends MvpPresenter<PlayerView> {
 
     }
 
+    public void onMinimizeClicked() {
+
+    }
+
+    public void onSettingsClicked() {
+
+    }
+
     @Override
     public void onDestroy() {
         super.onDestroy();

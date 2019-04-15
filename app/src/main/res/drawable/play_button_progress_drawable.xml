@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="110dp"
+    android:height="110dp"
+    android:viewportWidth="600.0"
+    android:viewportHeight="600.0">
+
+    <group
+        android:name="arc"
+        android:pivotX="300"
+        android:pivotY="300">
+
+        <path
+            android:pathData="M 300 50 A 250 250 0 0 0 300 550"
+            android:strokeWidth="32"
+            android:strokeColor="@color/colorAccent"
+            android:strokeLineCap="round" />
+    </group>
+</vector>

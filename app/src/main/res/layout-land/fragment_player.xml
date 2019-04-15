@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.player.PlayerActivity">
+    tools:context=".ui.player.PlayerFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -112,6 +112,16 @@
             app:layout_constraintStart_toEndOf="@+id/btnPlay"
             app:layout_constraintTop_toTopOf="@+id/btnPlay"
             app:srcCompat="@drawable/ic_high_quality_black_24dp" />
+
+        <ImageView
+            android:id="@+id/ivProgress"
+            android:layout_width="@dimen/activity_player_button_progress_size"
+            android:layout_height="@dimen/activity_player_button_progress_size"
+            app:layout_constraintBottom_toBottomOf="@+id/btnPlay"
+            app:layout_constraintEnd_toEndOf="@+id/btnPlay"
+            app:layout_constraintStart_toStartOf="@+id/btnPlay"
+            app:layout_constraintTop_toTopOf="@+id/btnPlay"
+            app:srcCompat="@drawable/play_button_progress_animated_drawable" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btnPlay"

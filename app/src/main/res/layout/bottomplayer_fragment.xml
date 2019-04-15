@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/colorPanel"
     android:orientation="vertical">
-
 
     <TextView
         android:id="@+id/tvTitle"
@@ -14,11 +14,11 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        tools:text="Korn - Take a look in the mirror"
         app:layout_constraintEnd_toStartOf="@+id/btnPlayPause"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Korn - Take a look in the mirror" />
 
     <TextView
         android:id="@+id/tvName"
@@ -27,21 +27,24 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        tools:text="Radio Ultra"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnPlayPause"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+        tools:text="Radio Ultra" />
 
-    <Button
+    <ImageButton
         android:id="@+id/btnPlayPause"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/activity_player_button_secondary_size"
+        android:layout_height="@dimen/activity_player_button_secondary_size"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="..."
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_play_arrow_black_24dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
