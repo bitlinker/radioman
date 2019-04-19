@@ -10,28 +10,41 @@ import com.github.bitlinker.radioman.ui.moxyx.MvpXAppCompatActivity;
 import com.github.bitlinker.radioman.ui.moxyx.SupportXAppNavigator;
 
 import javax.annotation.Nullable;
+import javax.inject.Inject;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import ru.terrakok.cicerone.Navigator;
+import ru.terrakok.cicerone.commands.Command;
 
 public class MainActivity extends MvpXAppCompatActivity {
-    // TODO: inject
-    private MainNavigator mainNavigator = new MainNavigator();
+    @Inject
+    MainNavigator mainNavigator;
 
-    private final Navigator navigator = new SupportXAppNavigator(this, getSupportFragmentManager(), R.id.content);
+    private final Navigator navigator = new SupportXAppNavigator(this, getSupportFragmentManager(), R.id.content) {
+        @Override
+        protected void setupFragmentTransaction(Command command, Fragment currentFragment, Fragment nextFragment, FragmentTransaction fragmentTransaction) {
+            super.setupFragmentTransaction(command, currentFragment, nextFragment, fragmentTransaction);
+            // TODO: setup animations
+            fragmentTransaction.setCustomAnimations(R.anim.transition_enter_right, R.anim.transition_exit_left); // TODO: config; common
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // TODO: inject
-        Injector.getInstance().createUIComponent(this);
+        Injector.getInstance().getUIComponent(this).inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
 
 //        Intent intent = new Intent(this, PlayerFragment.class);
 //        startActivity(intent);
 
-        // TODO: from business/presenter
-        //mainNavigator.toMainScreen();
+        // TODO: call from business/presenter
+        navigateToStartScreen();
+    }
+
+    // TODO: view method
+    public void navigateToStartScreen() {
         mainNavigator.toPlayerScreen();
     }
 
@@ -68,6 +81,7 @@ public class MainActivity extends MvpXAppCompatActivity {
 
     @Override
     protected void onDestroy() {
+        Injector.getInstance().destroyUIComponent(this);
         super.onDestroy();
     }
 }

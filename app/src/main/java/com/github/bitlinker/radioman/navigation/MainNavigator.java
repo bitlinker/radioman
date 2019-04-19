@@ -1,5 +1,6 @@
 package com.github.bitlinker.radioman.navigation;
 
+import com.github.bitlinker.radioman.ui.history.HistoryFragment;
 import com.github.bitlinker.radioman.ui.main.MainFragment;
 import com.github.bitlinker.radioman.ui.moxyx.SupportXAppScreen;
 import com.github.bitlinker.radioman.ui.player.PlayerFragment;
@@ -32,6 +33,12 @@ public class MainNavigator {
         }
     };
 
+    private static SupportXAppScreen HISTORY_SCREEN = new SupportXAppScreen() {
+        @Override
+        public Fragment getFragment() {
+            return HistoryFragment.newInstance();
+        }
+    };
 
     private final Cicerone<Router> cicerone = Cicerone.create();
 
@@ -45,7 +52,6 @@ public class MainNavigator {
 
     public void back() {
         cicerone.getRouter().exit();
-        // TODO
     }
 
     public void toMainScreen() {
@@ -56,5 +62,11 @@ public class MainNavigator {
         cicerone.getRouter().navigateTo(PLAYER_SCREEN);
     }
 
-    // TODO
+    public void toSettingsScreen() {
+        cicerone.getRouter().navigateTo(SETTINGS_SCREEN);
+    }
+
+    public void toHistoryScreen() {
+        cicerone.getRouter().navigateTo(HISTORY_SCREEN);
+    }
 }

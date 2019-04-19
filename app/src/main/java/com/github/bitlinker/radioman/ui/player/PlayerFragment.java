@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.DialogFragment;
 
 public class PlayerFragment extends BaseFragment implements PlayerView {
     private Toolbar toolbar;
@@ -39,6 +41,11 @@ public class PlayerFragment extends BaseFragment implements PlayerView {
 
     public static PlayerFragment newInstance() {
         return new PlayerFragment();
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
     }
 
     @Nullable
@@ -60,6 +67,13 @@ public class PlayerFragment extends BaseFragment implements PlayerView {
         ivProgress = view.findViewById(R.id.ivProgress);
         btnPlay = view.findViewById(R.id.btnPlay);
         btnChooseStream = view.findViewById(R.id.btnChooseStream);
+
+        new Handler().postDelayed(() -> {
+            Drawable drawable = getActivity().getResources().getDrawable(R.drawable.playpause, null);
+            btnPlay.setImageDrawable(drawable);
+            ((Animatable) drawable).start();
+        }, 3000);
+
 
         btnPlay.setOnClickListener(v -> presenter.onPlayPauseClicked());
         btnHistory.setOnClickListener(v -> presenter.onHistoryClicked());
@@ -114,8 +128,28 @@ public class PlayerFragment extends BaseFragment implements PlayerView {
         );
     }
 
+    public void showChooseStreamDialog() {
+        DialogFragment df = new DialogFragment();
+        // TODO!
+    }
+
     @Override
     public void setInProgress(boolean isInProgress) {
         btnPlay.setEnabled(!isInProgress);
+    }
+
+    @Override
+    public void navigateBack() {
+        getMainNavigator().back();
+    }
+
+    @Override
+    public void navigateToSettings() {
+        getMainNavigator().toSettingsScreen();
+    }
+
+    @Override
+    public void navigateToHistory() {
+        getMainNavigator().toHistoryScreen();
     }
 }

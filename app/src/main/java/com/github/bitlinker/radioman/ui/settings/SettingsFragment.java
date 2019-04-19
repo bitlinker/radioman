@@ -15,8 +15,6 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 public class SettingsFragment extends BaseFragment {
-    // TODO: inject
-    MainNavigator mainNavigator;
 
     public static SettingsFragment newInstance() {
         return new SettingsFragment();
@@ -35,11 +33,5 @@ public class SettingsFragment extends BaseFragment {
         Toolbar toolbar = view.findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_arrow_back_black_24dp));
         toolbar.setNavigationOnClickListener(v -> onBackPressed());
-    }
-
-    @Override
-    public void onBackPressed() {
-        // TODO: notify busibess?
-        mainNavigator.back();
     }
 }

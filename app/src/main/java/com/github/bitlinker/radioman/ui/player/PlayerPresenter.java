@@ -29,7 +29,7 @@ public class PlayerPresenter extends MvpPresenter<PlayerView> {
     }
 
     public void onHistoryClicked() {
-
+        getViewState().navigateToHistory();
     }
 
     public void onChooseStreamClicked() {
@@ -37,11 +37,11 @@ public class PlayerPresenter extends MvpPresenter<PlayerView> {
     }
 
     public void onMinimizeClicked() {
-
+        getViewState().navigateBack();
     }
 
     public void onSettingsClicked() {
-
+        getViewState().navigateToSettings();
     }
 
     @Override

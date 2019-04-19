@@ -61,4 +61,19 @@ public class BottomPlayerFragment extends MvpXAppCompatFragment implements Playe
     public void setInProgress(boolean isInProgress) {
 
     }
+
+    @Override
+    public void navigateBack() {
+        // Do nothing
+    }
+
+    @Override
+    public void navigateToSettings() {
+        // Do nothing
+    }
+
+    @Override
+    public void navigateToHistory() {
+        // Do nothing
+    }
 }

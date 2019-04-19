@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceCategory
-        android:title="Behavior">
-        <CheckBoxPreference
-            android:key="chb1"
-            android:title="test" />
+    <PreferenceCategory android:title="Behavior">
+        <SwitchPreference android:title="Resume last station" />
+        <SwitchPreference android:title="Lock audio focus" />
     </PreferenceCategory>
-    <PreferenceCategory
-        android:title="Player">
-        <CheckBoxPreference
-            android:key="chb2"
-            android:title="test" />
+    <PreferenceCategory android:title="Appearance">
+        <ListPreference android:title="Theme" />
     </PreferenceCategory>
-    <PreferenceCategory
-        android:title="About">
-        <CheckBoxPreference
-            android:key="chb3"
-            android:title="test" />
+    <PreferenceCategory android:title="Player">
+        <EditTextPreference
+            android:key="edit_text_preference_1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="Buffer size" />
+        <ListPreference android:title="Preferred stream" />
     </PreferenceCategory>
+    <PreferenceCategory android:title="Misc">
+        <Preference android:title="About" />
+    </PreferenceCategory>
+
 </PreferenceScreen>
