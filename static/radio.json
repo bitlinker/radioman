@@ -1,0 +1,44 @@
+{
+	data: [
+		{
+			id: "1",
+			name: "Radio Ultra",
+			imageUrl: "http://player.radioultra.ru/images/logos/ultra.jpg",
+			streams: [
+				{
+					bitrate: 64,
+					url: "https://nashe1.hostingradio.ru:18000/ultra-64.mp3"
+				},
+				{
+					bitrate: 128,
+					url: "https://nashe1.hostingradio.ru:18000/ultra-64.mp3"
+				},
+				{
+					bitrate: 256,
+					url: "https://nashe1.hostingradio.ru:80/ultra-256"
+				}
+			]
+		},
+		{
+			id: "2",
+			name: "Space Station Soma",
+			imageUrl: "https://somafm.com/img/sss.jpg",
+			streams: [
+				{
+					bitrate: 32,
+					url: "https://somafm.com/spacestation32.pls"
+				},
+				{
+					bitrate: 64,
+					url: "https://somafm.com/spacestation64.pls"
+				},
+				{
+					bitrate: 128,
+					url: "https://somafm.com/spacestation130.pls"
+				}
+			]
+		},		
+	],
+	total: 2,
+	count: 2
+}
