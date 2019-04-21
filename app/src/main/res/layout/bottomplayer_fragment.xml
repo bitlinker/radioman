@@ -9,6 +9,7 @@
 
     <TextView
         android:id="@+id/tvTitle"
+        style="@style/TextTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -22,6 +23,7 @@
 
     <TextView
         android:id="@+id/tvName"
+        style="@style/TextSubTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

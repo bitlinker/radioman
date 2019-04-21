@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">RadioMan</string>
     <string name="menu_settings">Settings</string>
+
+    <string name="error_io">IO error</string>
+    <string name="error_network">Network error</string>
+    <string name="error_unknown">Unknown error</string>
 </resources>

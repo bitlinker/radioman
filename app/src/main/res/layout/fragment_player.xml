@@ -73,6 +73,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:maxImageSize="@dimen/activity_player_button_image_size"
             app:srcCompat="@drawable/playpause" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

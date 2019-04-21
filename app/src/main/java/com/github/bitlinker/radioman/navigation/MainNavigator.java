@@ -55,7 +55,7 @@ public class MainNavigator {
     }
 
     public void toMainScreen() {
-        cicerone.getRouter().navigateTo(MAIN_SCREEN);
+        cicerone.getRouter().newRootScreen(MAIN_SCREEN);
     }
 
     public void toPlayerScreen() {

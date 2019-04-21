@@ -2,7 +2,9 @@ package com.github.bitlinker.radioman.di.ui;
 
 import android.content.Context;
 
+import com.github.bitlinker.radioman.business.schedulers.SchedulersProvider;
 import com.github.bitlinker.radioman.di.Injector;
+import com.github.bitlinker.radioman.ui.error.ErrorBus;
 
 import javax.inject.Named;
 
@@ -19,7 +21,14 @@ public class MainActivityModule {
 
     @Provides
     @UiScope
-    public @Named(Injector.NAMED_ACTIVITY_CONTEXT) Context provideActivityContext() {
+    public @Named(Injector.NAMED_ACTIVITY_CONTEXT)
+    Context provideActivityContext() {
         return activityContext;
+    }
+
+    @Provides
+    @UiScope
+    public ErrorBus provideErrorBus(SchedulersProvider schedulersProvider) {
+        return new ErrorBus(schedulersProvider);
     }
 }

@@ -14,7 +14,7 @@ public abstract class BaseFragment extends MvpXAppCompatFragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        // TODO: inject per-radio?
+        // TODO: inject per-instance?
         Injector.getInstance().getUIComponent(getActivity()).inject(this);
         super.onCreate(savedInstanceState);
     }

@@ -3,6 +3,7 @@
     <dimen name="activity_player_margin_main">16dp</dimen>
     <dimen name="activity_player_margin_secondary">8dp</dimen>
     <dimen name="activity_player_button_main_size">80dp</dimen>
+    <dimen name="activity_player_button_image_size">56dp</dimen>
     <dimen name="activity_player_margin_main_elevation">6dp</dimen>
     <dimen name="activity_player_button_secondary_size">64dp</dimen>
     <dimen name="activity_player_image_elevation">12dp</dimen>

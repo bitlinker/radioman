@@ -13,7 +13,8 @@
             android:selectAllOnFocus="true"
             android:singleLine="true"
             android:title="Buffer size" />
-        <ListPreference android:title="Preferred stream" />
+        <EditTextPreference android:title="Preferred bitrate" />
+        <EditTextPreference android:title="User-agent string" />
     </PreferenceCategory>
     <PreferenceCategory android:title="Misc">
         <Preference android:title="About" />
