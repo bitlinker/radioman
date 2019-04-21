@@ -4,7 +4,7 @@ import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 import com.github.bitlinker.radioman.business.HistoryInteractor;
 import com.github.bitlinker.radioman.business.schedulers.SchedulersProvider;
-import com.github.bitlinker.radioman.ui.error.ErrorBus;
+import com.github.bitlinker.radioman.ui.error.UIErrorBus;
 import com.github.bitlinker.radioman.ui.error.UiError;
 
 import io.reactivex.disposables.CompositeDisposable;
@@ -17,14 +17,14 @@ public class HistoryPresenter extends MvpPresenter<HistoryView> {
 
     private final HistoryInteractor historyInteractor;
     private final SchedulersProvider schedulersProvider;
-    private final ErrorBus errorBus;
+    private final UIErrorBus UIErrorBus;
 
     public HistoryPresenter(HistoryInteractor historyInteractor,
                             SchedulersProvider schedulersProvider,
-                            ErrorBus errorBus) {
+                            UIErrorBus UIErrorBus) {
         this.historyInteractor = historyInteractor;
         this.schedulersProvider = schedulersProvider;
-        this.errorBus = errorBus;
+        this.UIErrorBus = UIErrorBus;
     }
 
     @Override
@@ -42,7 +42,7 @@ public class HistoryPresenter extends MvpPresenter<HistoryView> {
 
     private void showError(Throwable throwable) {
         Timber.e(throwable);
-        errorBus.add(UiError.builder()
+        UIErrorBus.add(UiError.builder()
                 .type(UiError.Type.IO)
                 .base(throwable)
                 .build()

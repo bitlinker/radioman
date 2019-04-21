@@ -6,12 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.github.bitlinker.radioman.R;
-import com.github.bitlinker.radioman.ui.common.BaseFlowFragment;
+import com.github.bitlinker.radioman.ui.common.BaseFragment;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 
-public class MainFragment extends BaseFlowFragment {
+public class MainFragment extends BaseFragment {
     public static MainFragment newInstance() {
         return new MainFragment();
     }

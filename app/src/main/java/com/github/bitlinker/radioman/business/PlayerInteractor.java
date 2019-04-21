@@ -14,7 +14,11 @@ public class PlayerInteractor {
     }
 
     public void play() {
-
+//        if (PlayerService.INSTANCE.isPlaying()) {
+//            PlayerService.INSTANCE.stop();
+//        } else {
+//            PlayerService.INSTANCE.play(repo.getAll().get(0).getStreams().get(1));
+//        }
     }
 
     public void pause() {

@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.github.bitlinker.radioman.business.schedulers.SchedulersProvider;
 import com.github.bitlinker.radioman.di.Injector;
-import com.github.bitlinker.radioman.ui.error.ErrorBus;
+import com.github.bitlinker.radioman.ui.error.UIErrorBus;
 
 import javax.inject.Named;
 
@@ -28,7 +28,7 @@ public class MainActivityModule {
 
     @Provides
     @UiScope
-    public ErrorBus provideErrorBus(SchedulersProvider schedulersProvider) {
-        return new ErrorBus(schedulersProvider);
+    public UIErrorBus provideErrorBus(SchedulersProvider schedulersProvider) {
+        return new UIErrorBus(schedulersProvider);
     }
 }

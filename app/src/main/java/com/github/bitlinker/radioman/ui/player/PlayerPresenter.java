@@ -2,13 +2,24 @@ package com.github.bitlinker.radioman.ui.player;
 
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
-import com.github.bitlinker.radioman.business.radios.RadioRepo;
-import com.github.bitlinker.radioman.service.PlayerService;
+import com.github.bitlinker.radioman.business.PlayerInteractor;
+import com.github.bitlinker.radioman.business.schedulers.SchedulersProvider;
+import com.github.bitlinker.radioman.ui.error.UIErrorBus;
 
 @InjectViewState
 public class PlayerPresenter extends MvpPresenter<PlayerView> {
     // TODO: interactor
     //private final RadioRepo repo = new RadioRepo();
+
+    private final PlayerInteractor playerInteractor;
+    private final SchedulersProvider schedulersProvider;
+    private final UIErrorBus UIErrorBus;
+
+    public PlayerPresenter(PlayerInteractor playerInteractor, SchedulersProvider schedulersProvider, UIErrorBus UIErrorBus) {
+        this.playerInteractor = playerInteractor;
+        this.schedulersProvider = schedulersProvider;
+        this.UIErrorBus = UIErrorBus;
+    }
 
     @Override
     protected void onFirstViewAttach() {
@@ -21,11 +32,7 @@ public class PlayerPresenter extends MvpPresenter<PlayerView> {
     }
 
     public void onPlayPauseClicked() {
-//        if (PlayerService.INSTANCE.isPlaying()) {
-//            PlayerService.INSTANCE.stop();
-//        } else {
-//            PlayerService.INSTANCE.play(repo.getAll().get(0).getStreams().get(1));
-//        }
+        // TODO
     }
 
     public void onHistoryClicked() {

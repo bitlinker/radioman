@@ -1,9 +1,10 @@
 package com.github.bitlinker.radioman.di.ui;
 
 import com.github.bitlinker.radioman.business.HistoryInteractor;
+import com.github.bitlinker.radioman.business.PlayerInteractor;
 import com.github.bitlinker.radioman.business.RadioInteractor;
 import com.github.bitlinker.radioman.business.schedulers.SchedulersProvider;
-import com.github.bitlinker.radioman.ui.error.ErrorBus;
+import com.github.bitlinker.radioman.ui.error.UIErrorBus;
 import com.github.bitlinker.radioman.ui.history.HistoryPresenter;
 import com.github.bitlinker.radioman.ui.main.radiolist.RadioListPresenter;
 import com.github.bitlinker.radioman.ui.player.PlayerPresenter;
@@ -18,12 +19,12 @@ public class FragmentPresentersModule {
     public HistoryPresenter provideHistoryPresenter(
             HistoryInteractor historyInteractor,
             SchedulersProvider schedulersProvider,
-            ErrorBus errorBus
+            UIErrorBus UIErrorBus
     ) {
         return new HistoryPresenter(
                 historyInteractor,
                 schedulersProvider,
-                errorBus
+                UIErrorBus
         );
     }
 
@@ -32,17 +33,16 @@ public class FragmentPresentersModule {
     RadioListPresenter provideRadioListPresenter(
             RadioInteractor radioInteractor,
             SchedulersProvider schedulersProvider,
-            ErrorBus errorBus) {
-        return new RadioListPresenter(radioInteractor, schedulersProvider, errorBus);
+            UIErrorBus UIErrorBus) {
+        return new RadioListPresenter(radioInteractor, schedulersProvider, UIErrorBus);
     }
 
     @Provides
     @UiScope
     PlayerPresenter providePlayerPresenter(
-            RadioInteractor radioInteractor,
+            PlayerInteractor playerInteractor,
             SchedulersProvider schedulersProvider,
-            ErrorBus errorBus) {
-        // TODO: more dependencies
-        return new PlayerPresenter();
+            UIErrorBus UIErrorBus) {
+        return new PlayerPresenter(playerInteractor, schedulersProvider, UIErrorBus);
     }
 }

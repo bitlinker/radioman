@@ -14,16 +14,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.arellomobile.mvp.presenter.InjectPresenter;
+import com.arellomobile.mvp.presenter.ProvidePresenter;
 import com.github.bitlinker.radioman.R;
+import com.github.bitlinker.radioman.di.Injector;
 import com.github.bitlinker.radioman.service.PlayerService;
 import com.github.bitlinker.radioman.ui.common.BaseFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import javax.inject.Inject;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
+import dagger.Lazy;
 
 public class PlayerFragment extends BaseFragment implements PlayerView {
     private Toolbar toolbar;
@@ -39,12 +44,21 @@ public class PlayerFragment extends BaseFragment implements PlayerView {
     @InjectPresenter
     PlayerPresenter presenter;
 
+    @Inject
+    Lazy<PlayerPresenter> presenterProvider;
+
+    @ProvidePresenter
+    public PlayerPresenter providePresenter() {
+        return presenterProvider.get();
+    }
+
     public static PlayerFragment newInstance() {
         return new PlayerFragment();
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        Injector.getInstance().getUIComponent(getActivity()).inject(this);
         super.onCreate(savedInstanceState);
     }
 
@@ -68,11 +82,11 @@ public class PlayerFragment extends BaseFragment implements PlayerView {
         btnPlay = view.findViewById(R.id.btnPlay);
         btnChooseStream = view.findViewById(R.id.btnChooseStream);
 
-        new Handler().postDelayed(() -> {
-            Drawable drawable = getActivity().getResources().getDrawable(R.drawable.playpause, null);
-            btnPlay.setImageDrawable(drawable);
-            ((Animatable) drawable).start();
-        }, 3000);
+//        new Handler().postDelayed(() -> {
+//            Drawable drawable = getActivity().getResources().getDrawable(R.drawable.playpause, null);
+//            btnPlay.setImageDrawable(drawable);
+//            ((Animatable) drawable).start();
+//        }, 3000);
 
 
         btnPlay.setOnClickListener(v -> presenter.onPlayPauseClicked());

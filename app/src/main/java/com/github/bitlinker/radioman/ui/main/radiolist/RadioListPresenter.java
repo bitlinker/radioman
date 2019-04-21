@@ -4,7 +4,7 @@ import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 import com.github.bitlinker.radioman.business.RadioInteractor;
 import com.github.bitlinker.radioman.business.schedulers.SchedulersProvider;
-import com.github.bitlinker.radioman.ui.error.ErrorBus;
+import com.github.bitlinker.radioman.ui.error.UIErrorBus;
 import com.github.bitlinker.radioman.ui.error.UiError;
 
 import io.reactivex.disposables.CompositeDisposable;
@@ -15,14 +15,14 @@ public class RadioListPresenter extends MvpPresenter<RadioListView> {
     private final CompositeDisposable disposable = new CompositeDisposable();
     private final RadioInteractor radioInteractor;
     private final SchedulersProvider schedulersProvider;
-    private final ErrorBus errorBus;
+    private final UIErrorBus UIErrorBus;
 
     public RadioListPresenter(RadioInteractor radioInteractor,
                               SchedulersProvider schedulersProvider,
-                              ErrorBus errorBus) {
+                              UIErrorBus UIErrorBus) {
         this.radioInteractor = radioInteractor;
         this.schedulersProvider = schedulersProvider;
-        this.errorBus = errorBus;
+        this.UIErrorBus = UIErrorBus;
     }
 
     @Override
@@ -41,7 +41,7 @@ public class RadioListPresenter extends MvpPresenter<RadioListView> {
     // TODO: common
     private void showError(Throwable throwable) {
         Timber.e(throwable);
-        errorBus.add(UiError.builder()
+        UIErrorBus.add(UiError.builder()
                 .type(UiError.Type.IO)
                 .base(throwable)
                 .build()

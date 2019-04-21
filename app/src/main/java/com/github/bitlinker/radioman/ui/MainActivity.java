@@ -7,7 +7,7 @@ import com.github.bitlinker.radioman.R;
 import com.github.bitlinker.radioman.di.Injector;
 import com.github.bitlinker.radioman.navigation.MainNavigator;
 import com.github.bitlinker.radioman.ui.common.BaseFragment;
-import com.github.bitlinker.radioman.ui.error.ErrorBus;
+import com.github.bitlinker.radioman.ui.error.UIErrorBus;
 import com.github.bitlinker.radioman.ui.error.UiError;
 import com.github.bitlinker.radioman.ui.moxyx.MvpXAppCompatActivity;
 import com.github.bitlinker.radioman.ui.moxyx.SupportXAppNavigator;
@@ -27,7 +27,7 @@ public class MainActivity extends MvpXAppCompatActivity {
     MainNavigator mainNavigator;
 
     @Inject
-    ErrorBus errorBus;
+    UIErrorBus UIErrorBus;
 
     private View rootView;
 
@@ -67,7 +67,7 @@ public class MainActivity extends MvpXAppCompatActivity {
         super.onResume();
         mainNavigator.attach(navigator);
         disposable.add(
-                errorBus.observable()
+                UIErrorBus.observable()
                         .subscribe(this::showError)
         );
     }

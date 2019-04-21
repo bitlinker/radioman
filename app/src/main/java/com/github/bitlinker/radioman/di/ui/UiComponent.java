@@ -6,6 +6,7 @@ import com.github.bitlinker.radioman.ui.common.BaseFragment;
 import com.github.bitlinker.radioman.ui.history.HistoryFragment;
 import com.github.bitlinker.radioman.ui.main.bottomplayer.BottomPlayerFragment;
 import com.github.bitlinker.radioman.ui.main.radiolist.RadioListFragment;
+import com.github.bitlinker.radioman.ui.player.PlayerFragment;
 
 import dagger.Component;
 
@@ -14,7 +15,6 @@ import dagger.Component;
 public interface UiComponent {
     void inject(MainActivity target);
 
-    //void inject(PlayerFragment target);
     void inject(BaseFragment target);
 
     void inject(HistoryFragment target);
@@ -22,4 +22,6 @@ public interface UiComponent {
     void inject(RadioListFragment target);
 
     void inject(BottomPlayerFragment target);
+
+    void inject(PlayerFragment target);
 }
