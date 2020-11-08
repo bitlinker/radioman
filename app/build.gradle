@@ -25,14 +25,14 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
+    implementation 'androidx.appcompat:appcompat:1.3.0-alpha02'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 
-    implementation "com.google.android.material:material:+"
-    implementation 'androidx.preference:preference:1.0.0-beta01'
+    implementation "com.google.android.material:material:1.2.1"
+    implementation 'androidx.preference:preference:1.1.1'
 
     // RecyclerView
-    implementation 'androidx.recyclerview:recyclerview:1.0.0-beta01'
+    implementation 'androidx.recyclerview:recyclerview:1.2.0-alpha06'
 
     // Timber
     implementation 'com.jakewharton.timber:timber:4.7.1'
@@ -49,17 +49,17 @@ dependencies {
     implementation 'com.arello-mobile:moxy-app-compat:1.5.3'
 
     // Lombok
-    compileOnly 'org.projectlombok:lombok:1.18.6'
-    annotationProcessor 'org.projectlombok:lombok:1.18.6'
+    compileOnly 'org.projectlombok:lombok:1.18.8'
+    annotationProcessor 'org.projectlombok:lombok:1.18.8'
 
     // Dagger
-    implementation 'com.google.dagger:dagger:2.15'
+    implementation 'com.google.dagger:dagger:2.28.3'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.15'
     //implementation 'com.google.dagger:dagger-android-support:2.15' // if you use the support libraries
 
     // RxJava
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
-    implementation 'io.reactivex.rxjava2:rxjava:2.2.7'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.10'
 
     // RxRelay
     implementation 'com.jakewharton.rxrelay2:rxrelay:2.1.0'
@@ -67,4 +67,8 @@ dependencies {
     // ExoPlayer
     // TODO: use specific libs
     implementation 'com.google.android.exoplayer:exoplayer:2.9.6'
+
+    // Media
+    implementation 'androidx.core:core:1.3.2'
+    implementation 'androidx.media:media:1.2.0'
 }
